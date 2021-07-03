@@ -54,7 +54,7 @@ def getInputs(annee, communes):
 
 
 
-def drawMap(df_list, vehic_list, usager_list, annee, frontiere, route, vehic_type=None, usager_type=None):  
+def drawMap(df_list, vehic_list, usager_list, annee, frontiere, route, title, vehic_type=None, usager_type=None):  
     '''
     Draw municipalities boundaries, the main roads within these boundaries and the corresponding accidents for each selected year.
     Accidents can be restricted to a given vehicle or user type.
@@ -95,3 +95,7 @@ def drawMap(df_list, vehic_list, usager_list, annee, frontiere, route, vehic_typ
     route[route.fclass == 'unclassified'].plot(ax=ax, linewidth=1, color='grey')
     
     ax.legend()
+
+    plt.title(title)
+    plt.axis('off')
+    plt.tight_layout()
