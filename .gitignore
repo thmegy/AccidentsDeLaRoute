@@ -2,3 +2,4 @@ cache/
 input/
 .ipynb_checkpoints/
 *~
+__pycache__/
