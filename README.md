@@ -3,4 +3,4 @@ Analyse du jeu de données compilant les accidents de la route en France à part
 
 Pour visualiser le notebook : [accidents_route.ipynb](https://nbviewer.jupyter.org/github/thmegy/AccidentsDeLaRoute/blob/main/accidents_route.ipynb)
 
-![](pietons.jpg?raw=true)
+![](pietons.jpg?raw=true){:target="_blank"}
