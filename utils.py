@@ -10,7 +10,7 @@ def getInputs(annee, communes):
     Get inputs for each selected year then apply mask to restrict to selected municipalities.
     Keep vehicule and user information only for remaining accidents. 
     '''
-    if annee == '2019':
+    if annee in ['2019', '2020']:
         sep = ';'
         dep = communes[0][:2]
     else:
@@ -60,7 +60,10 @@ def drawMap(df_list, vehic_list, usager_list, annee, frontiere, route, title, ve
     Accidents can be restricted to a given vehicle or user type.
     '''
     ax = frontiere.plot(color='white', edgecolor='black', linewidth=3)
-    
+
+    # Draw roads and streets
+    route.plot(ax=ax, color='gray')
+
     for i, df in enumerate(df_list):
         if vehic_type is not None:
             # accidents for a given type of vehicle
@@ -88,12 +91,7 @@ def drawMap(df_list, vehic_list, usager_list, annee, frontiere, route, title, ve
             gdf.plot(ax=ax, label=annee[i], alpha=0.7, markersize=100, color='red')
         
     # Draw roads and streets
-    route[route.fclass == 'primary'].plot(ax=ax, linewidth=3, color='grey')
-    route[route.fclass == 'motorway'].plot(ax=ax, linewidth=3, color='grey')
-    route[route.fclass == 'secondary'].plot(ax=ax, linewidth=2, color='grey')
-    route[route.fclass == 'residential'].plot(ax=ax, linewidth=1, color='grey')
-    route[route.fclass == 'unclassified'].plot(ax=ax, linewidth=1, color='grey')
-    
+    route.plot(ax=ax, color='gray', alpha=0)
     ax.legend()
 
     plt.title(title)
