@@ -82,10 +82,8 @@ def drawMap(df_list, vehic_list, usager_list, annee, frontiere, route, title, ve
             gdf_pp = gpd.GeoDataFrame(df_pp, geometry=gpd.points_from_xy(df_pp.long, df_pp.lat))            
             gdf_npp = gpd.GeoDataFrame(df_npp,
                                        geometry=gpd.points_from_xy(df_npp.long, df_npp.lat))            
-            gdf_pp.plot(ax=ax, label='Sur passage piéton - {}'.format(annee[i]),
-                        alpha=1, markersize=100, color='red')
-            gdf_npp.plot(ax=ax, label='Hors passage piéton - {}'.format(annee[i]),
-                         alpha=1, markersize=100, color='orange')
+            gdf_pp.plot(ax=ax, label='Sur passage piéton', alpha=1, markersize=100, color='red')
+            gdf_npp.plot(ax=ax, label='Hors passage piéton', alpha=1, markersize=100, color='orange')
         else:
             gdf = gpd.GeoDataFrame(df, geometry=gpd.points_from_xy(df.long, df.lat))
             gdf.plot(ax=ax, label=annee[i], alpha=0.7, markersize=100, color='red')
